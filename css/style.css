@@ -33,7 +33,8 @@
 }
 
 .body {
-	padding: 8px;
+	padding: 10px;
+	padding-right: 15px;
 	height: calc(100% - 80px);
 	overflow: scroll;
 	scrollbar-color: rgb(151, 156, 151) transparent;
@@ -116,7 +117,7 @@
 
 .widget {
 	height: 84px;
-	background: white;
+	background: rgb(255, 255, 255);
 	position: relative;
 	border-radius: 5px;
 	cursor: move;
