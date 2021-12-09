@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/all.min.css">
+</head>
+
+<body>
+	<div class="main-body">
+		<div class="page-builder">
+			<div class="sidebar">
+				<div class="header"></div>
+				<div class="body">
+					<div class="widget_list">
+						<div class="widget">
+							<div class="brand-icon"><i class="fab fa-atlassian"></i></div>
+							<div class="icon">
+								<i class="fab fa-atlassian"></i>
+							</div>
+							<p class="title">Testimonial</p>
+						</div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+						<div class="widget" draggable="true"></div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-content">
+						<div class="publish">
+							<button>PUBLISH</button>
+						</div>
+					</div>
+				</div>
+				<div class="resizer"></div>
+				<div class="collapse-icon">
+					<i class="fas fa-angle-left"></i>
+				</div>
+			</div>
+			<div class="page-content" style="padding-left: 250px;transition: padding 0.5s;">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis esse laudantium, qui atque placeat
+				quis pariatur voluptatum aliquid asperiores praesentium consectetur rem, excepturi commodi nihil quae
+				accusamus a itaque? Obcaecati.
+			</div>
+		</div>
+	</div>
+	<script src="./js/all.min.js"></script>
+	<script>
+		let icon = document.querySelector('.collapse-icon');
+		let sidebar = document.querySelector('.sidebar');
+		let pageContent = document.querySelector('.page-content');
+		let startWidth = 250;
+		icon.addEventListener('click', function (e) {
+			console.log(sidebar.style)
+			let collapseIcon = document.querySelector('.collapse-icon>svg');
+			if (sidebar.style.marginLeft === '') {
+				sidebar.style.marginLeft = '-' + sidebar.clientWidth + 'px';
+				pageContent.style.paddingLeft = '0';
+				collapseIcon.style.transform = 'rotate(180deg)';
+			} else {
+				pageContent.style.paddingLeft = sidebar.clientWidth + 'px';
+				sidebar.style.marginLeft = '';
+				collapseIcon.style.transform = 'rotate(0deg)';
+			}
+		});
+
+		let resizer = document.querySelector('.resizer');
+		resizer.addEventListener('mousedown', initDrag, false);
+		let startX;
+		let startY;
+		let contentPadding;
+		let widgets = document.querySelectorAll('.widget');
+		function initDrag(e) {
+			startX = e.clientX;
+			startY = e.clientY;
+			startWidth = sidebar.clientWidth;
+			contentPadding = parseInt(pageContent.style.paddingLeft);
+			pageContent.style.transition = '';
+			sidebar.style.cursor = 'e-resize';
+			document.querySelector('.main-body').style.cursor = 'e-resize';
+			widgets.forEach(function (widget) {
+				widget.style.cursor = 'e-resize';
+			})
+			document.documentElement.addEventListener('mousemove', doDrag, false);
+			document.documentElement.addEventListener('mouseup', stopDrag, false);
+		}
+
+		function doDrag(e) {
+			console.log(contentPadding)
+			width = startWidth + e.clientX - startX;
+			if (width > 200 && width < 500) {
+				sidebar.style.width = (width) + 'px';
+				pageContent.style.paddingLeft = (width) + 'px';
+			}
+		}
+
+		function stopDrag(e) {
+			document.documentElement.removeEventListener('mousemove', doDrag, false);
+			document.documentElement.removeEventListener('mouseup', stopDrag, false);
+			sidebar.style.cursor = '';
+			widgets.forEach(function (widget) {
+				widget.style.cursor = '';
+			})
+			document.querySelector('.main-body').style.cursor = '';
+			pageContent.style.transition = 'padding 0.5s';
+		}
+	</script>
+</body>
+
+</html>
