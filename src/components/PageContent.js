@@ -1,4 +1,8 @@
+import { useState } from 'react/cjs/react.development';
+import Importer from './Importer';
+
 const PageContent = ({ mouseClicked, paddingLeft }) => {
+	const [sections, setSections] = useState([{}]);
 	const css = () => {
 		if (mouseClicked === false) {
 			return {
@@ -11,12 +15,15 @@ const PageContent = ({ mouseClicked, paddingLeft }) => {
 			userSelect: 'none'
 		};
 	}
+
 	return (
-		<div className="page_content" style={css()}>
-			Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis esse laudantium, qui atque placeat
-			quis pariatur voluptatum aliquid asperiores praesentium consectetur rem, excepturi commodi nihil quae
-			accusamus a itaque? Obcaecati.
-		</div>
+		<>
+			<div className="page_builder_page_content" style={css()}>
+				{sections.map((section, index) => {
+					return <Importer data={section} key={index} setSections={setSections} sections={sections} />;
+				})}
+			</div>
+		</>
 	)
 }
 
