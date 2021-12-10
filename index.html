@@ -78,6 +78,8 @@
 		let sidebar = document.querySelector('.sidebar');
 		let pageContent = document.querySelector('.page-content');
 		let startWidth = 250;
+		let widget_list = document.querySelector('.widget_list');
+
 		icon.addEventListener('click', function (e) {
 			console.log(sidebar.style)
 			let collapseIcon = document.querySelector('.collapse-icon>svg');
@@ -114,11 +116,18 @@
 		}
 
 		function doDrag(e) {
-			console.log(contentPadding)
 			width = startWidth + e.clientX - startX;
 			if (width > 200 && width < 500) {
 				sidebar.style.width = (width) + 'px';
 				pageContent.style.paddingLeft = (width) + 'px';
+			}
+
+			if (width > 450) {
+				widget_list.style.gridTemplateColumns = "25% 25% 25% 25%";
+			} else if (width > 370) {
+				widget_list.style.gridTemplateColumns = "33% 33% 33%";
+			} else {
+				widget_list.style.gridTemplateColumns = "50% 50%";
 			}
 		}
 

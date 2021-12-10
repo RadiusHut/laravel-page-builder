@@ -112,7 +112,7 @@
 .widget_list {
 	display: grid;
 	grid-template-columns: 50% 50%;
-	grid-gap: 10px;
+	grid-gap: 5px;
 }
 
 .widget {
@@ -121,6 +121,12 @@
 	position: relative;
 	border-radius: 5px;
 	cursor: move;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .widget:hover {
