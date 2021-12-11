@@ -20,7 +20,8 @@ const style = {
   background: 'white',
   borderRadius: '5px',
   border: '1px solid #979c97',
-  color: '#979c97'
+  color: '#979c97',
+  background: 'white'
 };
 
 export default function ContextMenu({ openContext, setOpenContext }) {
