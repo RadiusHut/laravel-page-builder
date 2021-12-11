@@ -1,8 +1,22 @@
-import { useState } from 'react/cjs/react.development';
-import Importer from './Importer';
+import { useState } from 'react';
+import ContextMenu from './ContextMenu';
+import Components from '../widgets/WidgetList';
+import Section from './Section';
 
 const PageContent = ({ mouseClicked, paddingLeft }) => {
 	const [sections, setSections] = useState([{}]);
+	const [openContext, setOpenContext] = useState(false);
+
+	const setContext = (e) => {
+
+		if (e === false) {
+			setOpenContext(e);
+		} else {
+			e.preventDefault();
+			setOpenContext(true);
+		}
+	}
+
 	const css = () => {
 		if (mouseClicked === false) {
 			return {
@@ -20,8 +34,10 @@ const PageContent = ({ mouseClicked, paddingLeft }) => {
 		<>
 			<div className="page_builder_page_content" style={css()}>
 				{sections.map((section, index) => {
-					return <Importer data={section} key={index} setSections={setSections} sections={sections} />;
+					return <Section data={section} key={index} setSections={setSections} sections={sections} setOpenContext={setContext} Components={Components}/>;
 				})}
+
+				<ContextMenu openContext={openContext} setOpenContext={setContext} />
 			</div>
 		</>
 	)

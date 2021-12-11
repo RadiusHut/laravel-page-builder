@@ -1,5 +1,4 @@
 .page_builder_page_content {
-	text-align: justify;
 
 	.page_builder_widget_importer {
 		padding: 50px 100px;
@@ -11,15 +10,28 @@
 			position: relative;
 			border: 2.5px dashed #006280;
 
-			svg {
+			.page_builder_actions {
+
 				position: absolute;
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50%);
-				height: 28px;
-				width: 28px;
-				color: #006280;
-				cursor: pointer;
+				display: flex;
+				grid-gap: 5px;
+
+				svg {
+					cursor: pointer;
+					background: #006280;
+					padding: 8px;
+					border-radius: 50%;
+					color: white;
+					width: 20px;
+					height: 20px;
+				}
+
+				.page_builder_action_folder {
+					background: rgb(255, 0, 13);
+				}
 			}
 		}
 	}

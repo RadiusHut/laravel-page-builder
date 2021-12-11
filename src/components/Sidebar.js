@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAtlas, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAtlas } from '@fortawesome/free-solid-svg-icons';
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import { useState } from "react";
 const Sidebar = ({ setMouseClicked, width, setPaddingLeft, mouseClicked, gridTemplateColumns }) => {
 
@@ -40,7 +41,7 @@ const Sidebar = ({ setMouseClicked, width, setPaddingLeft, mouseClicked, gridTem
 						</div>
 						<p className="title">Testimonial</p>
 					</div>
-					<div className="widget" draggable="true" style={{ cursor: mouseClicked ? 'e-resize' : '' }} onDragStart={Drag} widget_id='map'>
+					<div className="widget" draggable="true" style={{ cursor: mouseClicked ? 'e-resize' : '' }} onDragStart={Drag} widget_id='Map'>
 						<div className="brand_icon">
 							<FontAwesomeIcon icon={faAtlas} />
 						</div>
@@ -60,7 +61,7 @@ const Sidebar = ({ setMouseClicked, width, setPaddingLeft, mouseClicked, gridTem
 			</div>
 			<div className="resizer" onMouseDown={startDrag}></div>
 			<div className="collapse_icon" onClick={Collapse}>
-				<FontAwesomeIcon icon={faAngleLeft} style={{ transform: 'rotate(' + rotate + 'deg)' }} />
+				<ArrowLeftIcon style={{ transform: 'rotate(' + rotate + 'deg)' }} />
 			</div>
 		</div>
 	);

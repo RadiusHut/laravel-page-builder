@@ -3,5 +3,17 @@
 	height: 100vh;
 }
 
+.MuiBackdrop-root {
+	background: transparent !important;
+}
+
+.MuiList-root {
+	font-size: 1px !important;
+	&:focus-visible {
+		outline: none;
+	}
+}
+
 @import '../components/Sidebar.scss';
 @import '../components/PageContent.scss';
+@import '../components/Structure.scss';
