@@ -7,7 +7,7 @@ const Importer = (props) => {
 		<div className="page_builder_widget_importer">
 			<div className="page_builder_widget_importer_content">
 				<div className='page_builder_actions'>
-					<AddIcon />
+					<AddIcon onClick={() => props.setType('Structure')}/>
 					<FolderIcon className='page_builder_action_folder'/>
 				</div>
 			</div>

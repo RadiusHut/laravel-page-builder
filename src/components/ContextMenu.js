@@ -17,7 +17,6 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 220,
-  background: 'white',
   borderRadius: '5px',
   border: '1px solid #979c97',
   color: '#979c97',

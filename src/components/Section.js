@@ -1,8 +1,6 @@
-import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react/cjs/react.development";
-import Importer from "./Importer";
-import Structure from "./Structure";
+import { useState } from "react";
+import Components from "../widgets/WidgetList";
+import MainImporter from "./MainImporter";
 
 const Section = (props) => {
 
@@ -15,7 +13,7 @@ const Section = (props) => {
 
 	const Drop = (e) => {
 		var data = e.dataTransfer.getData("dragElementId");
-		setComponents([...components, { 'key' : data }]);
+		setComponents([...components, { 'key': data }]);
 		if (sectionId === false) {
 			props.setSections([...props.sections, {}])
 			setSectionId(true);
@@ -27,8 +25,8 @@ const Section = (props) => {
 	}
 
 	const Component = (item) => {
-		if (typeof item['key'] !== 'undefined' && typeof props.Components[item['key']] !== 'undefined') {
-			const ComponentToRender = props.Components[item['key']];
+		if (typeof item['key'] !== 'undefined' && typeof Components[item['key']] !== 'undefined') {
+			const ComponentToRender = Components[item['key']];
 			return <ComponentToRender hello="dfadsf" />;
 		}
 	}
@@ -47,11 +45,10 @@ const Section = (props) => {
 	}
 
 	const view = () => {
-		if (Object.keys(components).length == 0) {
+		if (Object.keys(components).length === 0) {
 			return (
 				<div className="page_builder_section_content">
-					<Importer/>
-					{/* <Structure/> */}
+					<MainImporter />
 				</div>
 			);
 		}

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import ContextMenu from './ContextMenu';
-import Components from '../widgets/WidgetList';
 import Section from './Section';
 
 const PageContent = ({ mouseClicked, paddingLeft }) => {
@@ -34,7 +33,7 @@ const PageContent = ({ mouseClicked, paddingLeft }) => {
 		<>
 			<div className="page_builder_page_content" style={css()}>
 				{sections.map((section, index) => {
-					return <Section data={section} key={index} setSections={setSections} sections={sections} setOpenContext={setContext} Components={Components}/>;
+					return <Section data={section} key={index} setSections={setSections} sections={sections} setOpenContext={setContext}/>;
 				})}
 
 				<ContextMenu openContext={openContext} setOpenContext={setContext} />

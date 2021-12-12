@@ -1,6 +1,9 @@
-let Components = {};
+import Map from './Map';
+import Test from './Test';
 
-Components['Test'] = require('../widgets/Test').default;
-Components['Map'] = require('../widgets/Map').default;
+let Components = {
+	'Map': Map,
+	'Test': Test
+};
 
-export default Components
+export default Components;
